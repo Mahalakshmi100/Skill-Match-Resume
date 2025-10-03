@@ -1,0 +1,32 @@
+python
+java
+c++
+javascript
+html
+css
+flask
+django
+react
+nodejs
+sql
+mysql
+mongodb
+aws
+docker
+kubernetes
+tensorflow
+pytorch
+nlp
+spacy
+git
+github
+linux
+azure
+gcp
+machine learning
+deep learning
+data science
+excel
+powerbi
+tableau
+fastapi

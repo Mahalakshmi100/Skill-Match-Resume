@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="dashboard-card">
+  <h2 class="page-title">Resume & Job Description Matcher</h2>
+
+  <form method="POST" enctype="multipart/form-data" action="{{ url_for('dashboard') }}" class="dashboard-form">
+    <div class="form-field">
+      <label>Upload Resume (PDF/DOCX/TXT):</label>
+      <input type="file" name="resume_file">
+    </div>
+
+    <div class="form-field">
+  <label>Or Paste Resume Text:</label>
+  <textarea name="resume_text" rows="4" class="short-textarea">{{ resume_text }}</textarea>
+</div>
+
+<div class="form-field">
+  <label>Paste Job Description:</label>
+  <textarea name="job_text" rows="4" class="short-textarea" required>{{ request.form.job_text or '' }}</textarea>
+</div>
+
+<div class="form-field center-btn">
+  <button type="submit">Match</button>
+</div>
+
+  </form>
+</div>
+
+{% if result %}
+<hr>
+<div class="match-results">
+  <h3>Match Results</h3>
+  <table>
+    <tr><th>Match Score</th><td>{{ result.match_score }}%</td></tr>
+    <tr><th>Text Similarity</th><td>{{ result.text_similarity }}%</td></tr>
+    <tr><th>Skill Coverage</th><td>{{ result.skill_coverage }}%</td></tr>
+    <tr><th>Matched Skills</th><td>{{ result.matched_skills | join(", ") if result.matched_skills else "None" }}</td></tr>
+    <tr><th>Missing Skills</th><td>{{ result.missing_skills | join(", ") if result.missing_skills else "None" }}</td></tr>
+    <tr><th>ATS Score</th><td>{{ result.ats_score }}%</td></tr>
+  </table>
+
+  <h4>Original Resume Text</h4>
+  <div class="resume-text-box">{{ resume_text }}</div>
+
+  {% if updated_resume_url %}
+  <div class="download-resume">
+    <a href="{{ updated_resume_url }}" target="_blank">📄 Download Updated Resume PDF</a>
+  </div>
+  {% endif %}
+</div>
+
+<div class="feedback-section">
+  <h4>Give Your Feedback</h4>
+  <form method="POST" action="{{ url_for('feedback') }}">
+    <div class="star-rating">
+      <input type="radio" id="star5" name="rating" value="5" /><label for="star5">&#9733;</label>
+      <input type="radio" id="star4" name="rating" value="4" /><label for="star4">&#9733;</label>
+      <input type="radio" id="star3" name="rating" value="3" /><label for="star3">&#9733;</label>
+      <input type="radio" id="star2" name="rating" value="2" /><label for="star2">&#9733;</label>
+      <input type="radio" id="star1" name="rating" value="1" /><label for="star1">&#9733;</label>
+    </div>
+    <textarea name="comments" rows="4" placeholder="Write your feedback..."></textarea>
+    <button type="submit">Submit Feedback</button>
+  </form>
+</div>
+{% endif %}
+
+{% endblock %}

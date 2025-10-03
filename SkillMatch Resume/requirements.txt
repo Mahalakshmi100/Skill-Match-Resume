@@ -1,0 +1,9 @@
+flask
+scikit-learn
+nltk
+pdfminer.six
+python-docx
+pandas
+matplotlib
+spacy
+sentence-transformers

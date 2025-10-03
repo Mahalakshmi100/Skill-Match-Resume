@@ -1,0 +1,443 @@
+/* Reset & base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: url("../images/background.jpg") no-repeat center center fixed;
+  background-size: cover;
+  color: #fff;
+  line-height: 1.6;
+}
+
+/* Navigation bar */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 15px 30px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.nav h2 {
+  font-size: 40px;
+  font-weight: bold;
+  color: red;
+}
+
+.logo img {
+  height: 50px;
+}
+
+/* Links in nav */
+.nav a,
+.user-area {
+  color: #02fa1f;
+  text-decoration: none;
+  font-weight: bold;
+  margin-left: 15px;
+  transition: color 0.3s;
+  font-size: 25px;
+}
+
+.nav a:hover {
+  color: #36d1dc;
+}
+
+/* Main big container (resume/dashboard) */
+.container {
+  max-width: 1300px;
+  margin: 20px auto;
+  padding: 30px;
+  background: rgba(235, 232, 232, 0.041);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+
+}
+
+/* Smaller centered form container (login/register) */
+.form-container {
+  max-width: 450px;
+  margin: 40px auto;
+  padding: 10px;
+  background: rgba(250, 249, 249, 0.696);
+  color: #131313;
+  border-radius: 15px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  font-size: 25px;
+  
+  
+}
+
+.form-container h3 {
+  margin-bottom: 20px;
+  color: #222;
+}
+
+.form-container input,
+.form-container select {
+  width: 100%;
+  padding: 12px;
+  margin-top: 5px;
+  border: 3px solid #151515;
+  border-radius: 8px;
+  font-size: 25px;
+}
+
+.form-container button {
+  width: 30%;
+  margin-top: 2px;
+}
+
+/* Flash messages */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin: 8px 0;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+li.success { background: #28a745; color: white; }
+li.danger { background: #dc3545; color: white; }
+li.warning { background: #ffc107; color: black; }
+
+/* Forms */
+.form-field {
+  margin-bottom: 15px;
+}
+
+.form-field label {
+  font-size: 23px;
+  font-weight: bold;
+}
+
+.form-field input,
+.form-field textarea {
+  width: 50%;
+  padding: 12px;
+  margin-top: 10px;
+  border-radius: 8px;
+  border: 3px solid #0f0f0f;
+  font-size: 16px;
+}
+
+/* Buttons */
+button,
+input[type="submit"] {
+  background: linear-gradient(90deg, #ff416c, #ff4b2b);
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 25px;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+}
+
+button:hover,
+input[type="submit"]:hover {
+  transform: scale(1.05);
+  background: linear-gradient(90deg, #36d1dc, #5b86e5);
+}
+
+/* Star rating */
+.star-rating {
+  direction: rtl;
+  font-size: 2em;
+  unicode-bidi: bidi-override;
+  display: inline-block;
+}
+
+.star-rating input[type="radio"] {
+  display: none;
+}
+
+.star-rating label {
+  color: #ddd;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.star-rating input[type="radio"]:checked ~ label,
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+  color: #ffc107;
+}
+
+/* User icon */
+.user-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  vertical-align: middle;
+  margin-right: 10px;
+  border: 3px solid #0f0f0f;
+}
+
+/* Flex layout for logo + text */
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Circle logo */
+.logo {
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #0e0e0e;
+}
+
+.logo-area h2 {
+  font-size: 3rem;
+  margin: 0;
+}
+
+/* === Dashboard Form Styling === */
+.dashboard-form {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.dashboard-form label {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 3px;
+  color: #ffd700; /* gold color for labels */
+}
+
+.dashboard-form input[type="file"],
+.dashboard-form textarea {
+  width: 100%;
+  height: 60px;
+  padding: 18px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  background: rgba(255, 255, 255, 0.9);
+  font-size: 16px;
+  color: #333;
+  resize: vertical;
+  transition: 0.3s;
+}
+
+.dashboard-form input[type="file"]:hover,
+.dashboard-form textarea:focus {
+  border-color: #36d1dc;
+  box-shadow: 0 0 8px rgba(54, 209, 220, 0.5);
+  outline: none;
+}
+
+/* Button spacing */
+.dashboard-form button {
+  width: 200px;
+  align-self: center;
+}
+
+/* Add a nice card look */
+.dashboard-card {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+
+
+/* Center align the match button */
+.center-btn {
+  text-align: center;
+}
+
+.center-btn button {
+  padding: 12px 30px;
+  font-size: 16px;
+  border-radius: 25px;
+}
+
+/* Match Results Section */
+.match-results {
+  margin-top: 20px;
+  padding: 20px;
+  background:  rgba(0, 0, 0, 0.7);
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.212);
+  color: #fff;
+}
+
+.match-results h3 {
+  font-size: 30px;
+  margin-bottom: 15px;
+  text-align: center;
+  color: #ffd700;
+}
+
+.match-results table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.match-results th,
+.match-results td {
+  padding: 12px 15px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.607);
+  text-align: left;
+}
+
+.match-results th {
+  background: rgba(250, 249, 249, 0.934);
+  color: #f405ac;
+  font-size: 23px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.match-results td {
+  background: rgba(250, 249, 249, 0.916);
+  color: rgba(130, 2, 249, 0.927);
+  font-size: 23px;
+  font-weight: bold;
+}
+
+.match-results tr:hover {
+  background: rgb(47, 245, 255);
+}
+
+/* Resume text box */
+.resume-text-box {
+  max-height: 250px;
+  overflow-y: auto;
+  background: #1e1e1e;
+  padding: 15px;
+  border-radius: 10px;
+  color: #eaeaea;
+  font-family: monospace;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  margin-top: 15px;
+  font-size: 15px;
+}
+
+/* Download Resume button */
+.download-resume a {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  background: linear-gradient(90deg, #ff416c, #ff4b2b);
+  color: white;
+  font-weight: bold;
+  border-radius: 25px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.download-resume a:hover {
+  background: linear-gradient(90deg, #36d1dc, #5b86e5);
+  transform: scale(1.05);
+}
+
+/* Feedback Section */
+.feedback-section {
+  margin-top: 30px;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.feedback-section h4 {
+  margin-bottom: 15px;
+  font-size: 25px;
+  text-align: center;
+  color: #ffd700;
+}
+
+.feedback-section .star-rating {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.feedback-section textarea {
+  width: 100%;
+  max-width: 600px;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  resize: vertical;
+  font-size: 14px;
+  margin: 0 auto;
+  display: block;
+}
+
+.feedback-section button {
+  display: block;
+  margin: 15px auto 0;
+  padding: 12px 30px;
+  font-size: 18px;
+  border-radius: 25px;
+}
+
+/* Original Resume Text heading */
+.match-results h4 {
+  font-size: 26px;   /* bigger text */
+  margin-top: 20px;
+  text-align: center;
+  color: #ffd700;
+}
+
+/* Resume download button centered */
+.download-resume {
+  text-align: center;   /* centers the button */
+  margin-top: 20px;
+}
+
+.download-resume a {
+  display: inline-block;
+  padding: 12px 30px;
+  background: linear-gradient(90deg, #ff416c, #ff4b2b);
+  color: white;
+  font-weight: bold;
+  border-radius: 25px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 16px;
+}
+
+.download-resume a:hover {
+  background: linear-gradient(90deg, #36d1dc, #5b86e5);
+  transform: scale(1.05);
+}
+
+/* Bigger feedback stars */
+.feedback-section .star-rating {
+  font-size: 2.8em;   /* bigger stars */
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+/* Center main page heading */
+.page-title {
+  text-align: center;
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 25px;
+  color: #ffd700;  /* golden color */
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.4); /* soft glow */
+}

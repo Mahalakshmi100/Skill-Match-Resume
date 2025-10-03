@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Skillz</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <div class="nav container">
+  <div class="logo-area">
+    <img src="{{ url_for('static', filename='images/logo.png') }}" class="logo" alt="Skillz Logo">
+    <h2>Skillz</h2>
+  </div>
+  <div>
+    {% if current_user.is_authenticated %}
+      <span class="user-area">
+        <img src="{{ url_for('static', filename='images/user.png') }}" class="user-icon" alt="User">
+        {{ current_user.name }} | <a href="{{ url_for('logout') }}">Logout</a>
+      </span>
+    {% else %}
+      <a href="{{ url_for('login') }}">Login |</a> 
+      <a href="{{ url_for('register') }}">Register</a>
+    {% endif %}
+  </div>
+</div>
+
+  <hr>
+  <div class="container">
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul>
+          {% for msg in messages %}
+            <li>{{ msg }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+    {% block content %}{% endblock %}
+  </div>
+</body>
+</html>
